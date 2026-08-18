@@ -12,10 +12,11 @@ import {
   Play,
   Save,
   Check,
-  X,
   Lock,
   Mail,
   Key,
+  Menu,
+  X,
 } from 'lucide-react';
 
 export const AdminPage: React.FC = () => {
@@ -52,6 +53,16 @@ export const AdminPage: React.FC = () => {
 
   // Video URLs map for expanded rows & explore grid
   const [videoUrls, setVideoUrls] = useState<Record<string, string>>({});
+
+  // Mobile layout state
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 992);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 992);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     setEditableQuestions(questions);
@@ -110,7 +121,7 @@ export const AdminPage: React.FC = () => {
                   width: '56px',
                   height: '56px',
                   borderRadius: '50%',
-                  backgroundColor: '#232528',
+                  backgroundColor: '#1C2434',
                   color: '#FFFFFF',
                   display: 'flex',
                   alignItems: 'center',
@@ -120,8 +131,8 @@ export const AdminPage: React.FC = () => {
               >
                 <Lock size={28} />
               </div>
-              <h2 style={{ fontSize: '22px', fontWeight: 800, color: '#232528' }}>Admin Portal</h2>
-              <p style={{ color: '#232528', fontSize: '14px', marginTop: '4px', fontWeight: 500 }}>
+              <h2 style={{ fontSize: '22px', fontWeight: 800, color: '#1C2434' }}>Admin Portal</h2>
+              <p style={{ color: '#1C2434', fontSize: '14px', marginTop: '4px', fontWeight: 500 }}>
                 Sign in to manage pledge campaign data
               </p>
             </div>
@@ -176,28 +187,38 @@ export const AdminPage: React.FC = () => {
   });
 
   return (
-    <div className="page-wrapper" style={{ flexDirection: 'row', minHeight: 'calc(100vh - 72px)' }}>
+    <div className="page-wrapper admin-layout" style={{ flexDirection: 'row', minHeight: 'calc(100vh - 72px)' }}>
       {/* Sidebar */}
       <aside
+        className="admin-sidebar"
         style={{
           width: '260px',
-          borderRight: 'none',
-          backgroundColor: '#FCE1C3',
+          borderRight: '1px solid var(--border-color)',
+          backgroundColor: '#FFFFFF',
           padding: '24px 16px',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
+          gap: '24px',
         }}
       >
         <div>
-          <div style={{ fontSize: '12px', fontWeight: 800, color: '#232528', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '16px', paddingLeft: '12px' }}>
-            Campaign Management
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', paddingLeft: '12px', paddingRight: '12px' }}>
+            <div style={{ fontSize: '12px', fontWeight: 800, color: '#1C2434', letterSpacing: '1px', textTransform: 'uppercase' }}>
+              Campaign Management
+            </div>
+            {isMobile && (
+              <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} style={{ color: '#1C2434', padding: '4px' }}>
+                {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              </button>
+            )}
           </div>
 
-          <nav style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-            <button
-              onClick={() => setActiveTab('submissions')}
-              className={`btn ${activeTab === 'submissions' ? 'btn-primary' : 'btn-secondary'}`}
+          {(!isMobile || isMobileMenuOpen) && (
+            <nav style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+              <button
+                onClick={() => { setActiveTab('submissions'); setIsMobileMenuOpen(false); }}
+                className={`btn ${activeTab === 'submissions' ? 'btn-primary' : 'btn-secondary'}`}
               style={{ justifyContent: 'flex-start', borderRadius: 'var(--radius-sm)', border: activeTab === 'submissions' ? 'none' : 'none' }}
             >
               <Users size={18} />
@@ -222,32 +243,35 @@ export const AdminPage: React.FC = () => {
               Explore Gallery
             </button>
           </nav>
+          )}
         </div>
 
-        <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '16px' }}>
-          <div style={{ fontSize: '14px', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '2px', paddingLeft: '12px' }}>
-            Admin User
+        {(!isMobile || isMobileMenuOpen) && (
+          <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '16px' }}>
+            <div style={{ fontSize: '14px', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '2px', paddingLeft: '12px' }}>
+              Admin User
+            </div>
+            <div style={{ fontSize: '12px', color: 'var(--text-muted)', marginBottom: '12px', paddingLeft: '12px' }}>
+              admin@wed.org
+            </div>
+            <button
+              onClick={adminLogout}
+              className="btn btn-secondary"
+              style={{ width: '100%', justifyContent: 'flex-start', height: '38px', fontSize: '13px' }}
+            >
+              <LogOut size={16} />
+              Sign Out
+            </button>
           </div>
-          <div style={{ fontSize: '12px', color: 'var(--text-muted)', marginBottom: '12px', paddingLeft: '12px' }}>
-            admin@wed.org
-          </div>
-          <button
-            onClick={adminLogout}
-            className="btn btn-secondary"
-            style={{ width: '100%', justifyContent: 'flex-start', height: '38px', fontSize: '13px' }}
-          >
-            <LogOut size={16} />
-            Sign Out
-          </button>
-        </div>
+        )}
       </aside>
 
       {/* Main Content Area */}
-      <main style={{ flex: 1, backgroundColor: 'var(--bg-offwhite)', padding: '32px 40px', overflowY: 'auto' }}>
+      <main style={{ flex: 1, backgroundColor: 'var(--bg-offwhite)', padding: isMobile ? '20px 16px' : '32px 40px', overflowY: 'auto' }}>
         {/* TAB 1: SUBMISSIONS TABLE */}
         {activeTab === 'submissions' && (
           <div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
+            <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', gap: isMobile ? '16px' : '0', justifyContent: 'space-between', alignItems: isMobile ? 'stretch' : 'center', marginBottom: '24px' }}>
               <div>
                 <h1 style={{ fontSize: '26px', fontWeight: 800 }}>Pledge Submissions</h1>
                 <p style={{ color: 'var(--text-secondary)', fontSize: '14px' }}>
@@ -256,7 +280,7 @@ export const AdminPage: React.FC = () => {
               </div>
 
               {/* Search Bar */}
-              <div style={{ position: 'relative', width: '280px' }}>
+              <div style={{ position: 'relative', width: isMobile ? '100%' : '280px' }}>
                 <input
                   type="text"
                   className="form-input"
@@ -270,11 +294,11 @@ export const AdminPage: React.FC = () => {
             </div>
 
             {/* Submissions Table */}
-            <div style={{ background: '#CFCCFF', borderRadius: '32px', border: 'none', overflow: 'hidden', boxShadow: 'var(--shadow-card)', padding: '12px' }}>
-              <div style={{ borderRadius: '24px', overflow: 'hidden', background: '#FFFFFF' }}>
-              <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '14px' }}>
+            <div style={{ background: '#6A5BFF', borderRadius: '32px', border: 'none', overflow: 'hidden', boxShadow: 'var(--shadow-card)', padding: isMobile ? '4px' : '12px' }}>
+              <div style={{ borderRadius: isMobile ? '28px' : '24px', overflowX: 'auto', background: '#FFFFFF' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: isMobile ? '12px' : '14px', minWidth: '600px' }}>
                 <thead>
-                  <tr style={{ background: 'rgba(0,0,0,0.02)', borderBottom: '1px solid rgba(0,0,0,0.05)', color: '#232528', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.5px', fontWeight: 800 }}>
+                  <tr style={{ background: 'rgba(0,0,0,0.02)', borderBottom: '1px solid rgba(0,0,0,0.05)', color: '#1C2434', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.5px', fontWeight: 800 }}>
                     <th style={{ padding: '14px 20px' }}>User / Contact</th>
                     <th style={{ padding: '14px 20px' }}>Phone</th>
                     <th style={{ padding: '14px 20px' }}>Date Submitted</th>
@@ -297,11 +321,11 @@ export const AdminPage: React.FC = () => {
                               <div style={{ fontSize: '13px', color: 'var(--text-muted)' }}>{sub.user.email}</div>
                             </td>
                             <td style={{ padding: '16px 20px', color: 'var(--text-secondary)' }}>{sub.user.phone}</td>
-                            <td style={{ padding: '16px 20px', color: '#232528' }}>
+                            <td style={{ padding: '16px 20px', color: '#1C2434' }}>
                               {new Date(sub.createdAt).toLocaleDateString()} {new Date(sub.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                             </td>
                             <td style={{ padding: '16px 20px' }}>
-                              <span style={{ padding: '4px 10px', borderRadius: '20px', backgroundColor: '#232528', color: '#FFFFFF', fontWeight: 600, fontSize: '12px' }}>
+                              <span style={{ display: 'inline-block', whiteSpace: 'nowrap', padding: '4px 10px', borderRadius: '20px', backgroundColor: '#1C2434', color: '#FFFFFF', fontWeight: 600, fontSize: '12px' }}>
                                 {sub.status}
                               </span>
                             </td>
@@ -316,8 +340,8 @@ export const AdminPage: React.FC = () => {
                           {/* Expanded Detail Row */}
                           {isExpanded && (
                             <tr style={{ background: 'var(--bg-subtle)' }}>
-                              <td colSpan={5} style={{ padding: '24px 28px' }}>
-                                <div style={{ display: 'grid', gridTemplateColumns: '1fr 340px', gap: '28px' }}>
+                              <td colSpan={5} style={{ padding: isMobile ? '16px' : '24px 28px' }}>
+                                <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 340px', gap: '28px' }}>
                                   <div>
                                     <h4 style={{ fontSize: '15px', fontWeight: 700, marginBottom: '16px' }}>Pledge Answers</h4>
                                     <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
@@ -353,7 +377,7 @@ export const AdminPage: React.FC = () => {
                     })
                   ) : (
                     <tr>
-                      <td colSpan={5} style={{ padding: '40px', textAlign: 'center', color: '#232528', fontWeight: 600 }}>
+                      <td colSpan={5} style={{ padding: '40px', textAlign: 'center', color: '#1C2434', fontWeight: 600 }}>
                         No pledge submissions found matching search query.
                       </td>
                     </tr>
@@ -385,15 +409,15 @@ export const AdminPage: React.FC = () => {
             <form onSubmit={handleSaveQuestions}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '24px' }}>
                 {editableQuestions.map((q, idx) => {
-                  const colors = ['#FCE1C3', '#D1E8FB', '#CFCCFF', '#BFE6D0'];
+                  const colors = ['#6A5BFF', '#2D68FF', '#EF4444', '#10C871'];
                   const bgColor = colors[idx % colors.length];
                   return (
                   <div key={q.id} style={{ margin: 0, padding: '24px', backgroundColor: bgColor, borderRadius: '32px' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-                      <span style={{ fontWeight: 800, fontSize: '14px', color: '#232528' }}>
+                      <span style={{ fontWeight: 800, fontSize: '14px', color: '#FFFFFF' }}>
                         Question #{idx + 1}
                       </span>
-                      <span style={{ fontSize: '12px', color: '#232528', opacity: 0.6 }}>ID: {q.id}</span>
+                      <span style={{ fontSize: '12px', color: '#FFFFFF', opacity: 0.8 }}>ID: {q.id}</span>
                     </div>
 
                     <div className="form-group" style={{ marginBottom: '16px' }}>

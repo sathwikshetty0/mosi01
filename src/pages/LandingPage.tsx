@@ -8,7 +8,7 @@ export const LandingPage: React.FC = () => {
   const { submissions, isSupabaseActive } = useCampaign();
 
   return (
-    <div className="page-wrapper" style={{ backgroundColor: '#F9FCE8', color: '#232528', fontFamily: 'var(--sans)' }}>
+    <div className="page-wrapper" style={{ backgroundColor: '#F4F7FE', color: '#1C2434', fontFamily: 'var(--sans)' }}>
       {/* Hero Section */}
       <section style={{ padding: '36px 0 60px' }}>
         <div className="container">
@@ -53,7 +53,7 @@ export const LandingPage: React.FC = () => {
                     fontSize: '13px',
                     fontWeight: 600,
                     color: '#FFFFFF',
-                    backgroundColor: '#232528',
+                    backgroundColor: '#1C2434',
                     padding: '8px 20px',
                     borderRadius: '24px',
                   }}
@@ -70,7 +70,7 @@ export const LandingPage: React.FC = () => {
                       gap: '8px',
                       fontSize: '13px',
                       fontWeight: 600,
-                      color: '#232528',
+                      color: '#1C2434',
                       backgroundColor: '#FFFFFF',
                       boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
                       padding: '8px 20px',
@@ -90,7 +90,7 @@ export const LandingPage: React.FC = () => {
                   lineHeight: 1.1,
                   letterSpacing: '-1px',
                   marginBottom: '24px',
-                  color: '#232528',
+                  color: '#1C2434',
                   wordWrap: 'break-word',
                   overflowWrap: 'anywhere',
                   hyphens: 'auto',
@@ -121,7 +121,7 @@ export const LandingPage: React.FC = () => {
                     alignItems: 'center',
                     justifyContent: 'center',
                     gap: '8px',
-                    backgroundColor: '#232528',
+                    backgroundColor: '#1C2434',
                     color: '#FFFFFF',
                     textDecoration: 'none',
                     borderRadius: '32px',
@@ -154,7 +154,7 @@ export const LandingPage: React.FC = () => {
                     wordWrap: 'break-word',
                   }}
                 >
-                  <CheckCircle size={18} color="#232528" style={{ flexShrink: 0 }} />
+                  <CheckCircle size={18} color="#1C2434" style={{ flexShrink: 0 }} />
                   <span style={{ overflowWrap: 'anywhere' }}>Over {135 + submissions.length} pledges recorded this year</span>
                 </div>
               </div>
@@ -173,7 +173,7 @@ export const LandingPage: React.FC = () => {
                   flexDirection: 'column',
                   justifyContent: 'space-between',
                   padding: '32px',
-                  color: '#232528',
+                  color: '#1C2434',
                   position: 'relative',
                   overflow: 'hidden',
                   border: 'none',
@@ -197,7 +197,7 @@ export const LandingPage: React.FC = () => {
                       backgroundColor: '#FFFFFF',
                       fontSize: '12px',
                       fontWeight: 600,
-                      color: '#232528',
+                      color: '#1C2434',
                     }}
                   >
                     Campaign Live
@@ -214,14 +214,14 @@ export const LandingPage: React.FC = () => {
                       borderRadius: '20px',
                       fontSize: '12px',
                       fontWeight: 600,
-                      color: '#232528',
+                      color: '#1C2434',
                       marginBottom: '16px',
                     }}
                   >
                     <Target size={14} style={{ marginRight: '6px' }} />
                     01 • Take the Pledge
                   </div>
-                  <h3 style={{ fontSize: '28px', fontWeight: 500, lineHeight: 1.25, color: '#232528' }}>
+                  <h3 style={{ fontSize: '28px', fontWeight: 500, lineHeight: 1.25, color: '#1C2434' }}>
                     Share Your Big Idea & Record Statement
                   </h3>
                 </div>
@@ -239,7 +239,7 @@ export const LandingPage: React.FC = () => {
                   }}
                 >
                   <div style={{ display: 'flex', flexDirection: 'column' }}>
-                    <span style={{ fontSize: '14px', fontWeight: 600, color: '#232528' }}>
+                    <span style={{ fontSize: '14px', fontWeight: 600, color: '#1C2434' }}>
                       World Entrepreneurship Day
                     </span>
                     <span style={{ fontSize: '12px', color: 'rgba(0,0,0,0.5)' }}>
@@ -251,7 +251,7 @@ export const LandingPage: React.FC = () => {
                       width: '42px',
                       height: '42px',
                       borderRadius: '50%',
-                      backgroundColor: '#232528',
+                      backgroundColor: '#1C2434',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -282,10 +282,11 @@ export const LandingPage: React.FC = () => {
           >
             <div
               style={{
-                background: '#FCE1C3',
+                background: '#6A5BFF',
                 padding: '32px',
                 borderRadius: '24px',
                 border: 'none',
+                color: '#FFFFFF'
               }}
             >
               <div
@@ -294,7 +295,7 @@ export const LandingPage: React.FC = () => {
                   height: '48px',
                   borderRadius: '50%',
                   backgroundColor: '#FFFFFF',
-                  color: '#232528',
+                  color: '#1C2434',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -303,20 +304,21 @@ export const LandingPage: React.FC = () => {
               >
                 <Target size={24} />
               </div>
-              <h3 style={{ fontSize: '20px', fontWeight: 500, marginBottom: '12px', color: '#232528' }}>
+              <h3 style={{ fontSize: '20px', fontWeight: 500, marginBottom: '12px', color: '#FFFFFF' }}>
                 Declare Your Idea
               </h3>
-              <p style={{ fontSize: '15px', color: 'rgba(0,0,0,0.6)', lineHeight: 1.5 }}>
+              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.9)', lineHeight: 1.5 }}>
                 Answer 4 structured questions detailing your vision, target audience, and immediate execution steps.
               </p>
             </div>
 
             <div
               style={{
-                background: '#D1E8FB',
+                background: '#EF4444',
                 padding: '32px',
                 borderRadius: '24px',
                 border: 'none',
+                color: '#FFFFFF'
               }}
             >
               <div
@@ -325,7 +327,7 @@ export const LandingPage: React.FC = () => {
                   height: '48px',
                   borderRadius: '50%',
                   backgroundColor: '#FFFFFF',
-                  color: '#232528',
+                  color: '#1C2434',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -334,20 +336,21 @@ export const LandingPage: React.FC = () => {
               >
                 <Video size={24} />
               </div>
-              <h3 style={{ fontSize: '20px', fontWeight: 500, marginBottom: '12px', color: '#232528' }}>
+              <h3 style={{ fontSize: '20px', fontWeight: 500, marginBottom: '12px', color: '#FFFFFF' }}>
                 Record Video Pledge
               </h3>
-              <p style={{ fontSize: '15px', color: 'rgba(0,0,0,0.6)', lineHeight: 1.5 }}>
+              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.9)', lineHeight: 1.5 }}>
                 Record a short video statement directly in your browser using your device's camera.
               </p>
             </div>
 
             <div
               style={{
-                background: '#CFCCFF',
+                background: '#10C871',
                 padding: '32px',
                 borderRadius: '24px',
                 border: 'none',
+                color: '#FFFFFF'
               }}
             >
               <div
@@ -356,7 +359,7 @@ export const LandingPage: React.FC = () => {
                   height: '48px',
                   borderRadius: '50%',
                   backgroundColor: '#FFFFFF',
-                  color: '#232528',
+                  color: '#1C2434',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -365,10 +368,10 @@ export const LandingPage: React.FC = () => {
               >
                 <Users size={24} />
               </div>
-              <h3 style={{ fontSize: '20px', fontWeight: 500, marginBottom: '12px', color: '#232528' }}>
+              <h3 style={{ fontSize: '20px', fontWeight: 500, marginBottom: '12px', color: '#FFFFFF' }}>
                 Join Public Wall
               </h3>
-              <p style={{ fontSize: '15px', color: 'rgba(0,0,0,0.6)', lineHeight: 1.5 }}>
+              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.9)', lineHeight: 1.5 }}>
                 Your pledge is logged on the public entrepreneur wall, inspiring fellow founders across the country.
               </p>
             </div>
@@ -377,7 +380,7 @@ export const LandingPage: React.FC = () => {
       </section>
 
       {/* Keynote Video Message Section */}
-      <section style={{ padding: '48px 0 80px', backgroundColor: '#F9FCE8', borderTop: 'none' }}>
+      <section style={{ padding: '48px 0 80px', backgroundColor: '#F4F7FE', borderTop: 'none' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '40px' }}>
             <div
@@ -387,7 +390,7 @@ export const LandingPage: React.FC = () => {
                 gap: '8px',
                 fontSize: '13px',
                 fontWeight: 600,
-                color: '#232528',
+                color: '#1C2434',
                 backgroundColor: '#FFFFFF',
                 padding: '8px 20px',
                 borderRadius: '24px',
@@ -398,7 +401,7 @@ export const LandingPage: React.FC = () => {
               <Award size={16} />
               Special Address
             </div>
-            <h2 style={{ fontSize: '36px', fontWeight: 500, marginBottom: '12px', color: '#232528' }}>
+            <h2 style={{ fontSize: '36px', fontWeight: 500, marginBottom: '12px', color: '#1C2434' }}>
               A Message For Future Founders
             </h2>
             <p style={{ color: '#4A4A4A', fontSize: '17px', fontWeight: 400, maxWidth: '540px', margin: '0 auto' }}>
@@ -447,7 +450,7 @@ export const LandingPage: React.FC = () => {
                       height: '76px',
                       borderRadius: '50%',
                       backgroundColor: '#FFFFFF',
-                      color: '#232528',
+                      color: '#1C2434',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',

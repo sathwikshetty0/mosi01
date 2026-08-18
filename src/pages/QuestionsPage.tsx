@@ -13,7 +13,7 @@ export const QuestionsPage: React.FC = () => {
   const currentQuestion = questions[currentQIndex] || questions[0];
   const currentVal = answers[currentQuestion?.id] || '';
 
-  const colors = ['#FCE1C3', '#D1E8FB', '#CFCCFF', '#BFE6D0'];
+  const colors = ['#6A5BFF', '#2D68FF', '#EF4444', '#10C871'];
   const bgColor = colors[currentQIndex % colors.length];
 
   const handleNext = (e: React.FormEvent) => {
@@ -60,7 +60,7 @@ export const QuestionsPage: React.FC = () => {
             <span style={{ 
               display: 'inline-flex',
               alignItems: 'center',
-              backgroundColor: '#232528',
+              backgroundColor: '#1C2434',
               padding: '6px 14px',
               borderRadius: '20px',
               fontSize: '12px',
@@ -71,13 +71,13 @@ export const QuestionsPage: React.FC = () => {
              }}>
               02 • QUESTION {currentQIndex + 1} OF {questions.length}
             </span>
-            <span style={{ fontSize: '14px', fontWeight: 700, color: '#232528' }}>
+            <span style={{ fontSize: '14px', fontWeight: 700, color: '#FFFFFF' }}>
               Step 2 of 3
             </span>
           </div>
 
           <div style={{ marginBottom: '32px' }}>
-            <h2 style={{ fontSize: '28px', fontWeight: 800, lineHeight: 1.25, color: 'var(--text-primary)', marginBottom: '16px' }}>
+            <h2 style={{ fontSize: '28px', fontWeight: 800, lineHeight: 1.25, color: '#FFFFFF', marginBottom: '16px' }}>
               {currentQuestion.text}
             </h2>
             <textarea

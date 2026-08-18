@@ -16,7 +16,7 @@ export const ThankYouPage: React.FC = () => {
             textAlign: 'center',
             padding: '50px 36px',
             margin: '0 auto',
-            backgroundColor: '#FCE1C3',
+            backgroundColor: '#FFFFFF',
             border: 'none',
           }}
         >
@@ -36,11 +36,11 @@ export const ThankYouPage: React.FC = () => {
             <CheckCircle2 size={48} />
           </div>
 
-          <h1 style={{ fontSize: '28px', fontWeight: 800, marginBottom: '12px', color: '#232528' }}>
+          <h1 style={{ fontSize: '28px', fontWeight: 800, marginBottom: '12px', color: '#1C2434' }}>
             Pledge Successfully Recorded!
           </h1>
 
-          <p style={{ color: '#232528', fontSize: '16px', lineHeight: 1.6, marginBottom: '24px', fontWeight: 500 }}>
+          <p style={{ color: '#1C2434', fontSize: '16px', lineHeight: 1.6, marginBottom: '24px', fontWeight: 500 }}>
             Thank you {userDetails.fullName || 'Innovator'} for being a part of World Entrepreneurship Day.
             Your pledge to pursue your big idea has been registered.
           </p>
@@ -52,7 +52,7 @@ export const ThankYouPage: React.FC = () => {
               borderRadius: '12px',
               fontSize: '14px',
               fontWeight: 600,
-              color: '#232528',
+              color: '#1C2434',
               marginBottom: '32px',
             }}
           >
