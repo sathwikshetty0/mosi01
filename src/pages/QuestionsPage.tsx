@@ -13,6 +13,9 @@ export const QuestionsPage: React.FC = () => {
   const currentQuestion = questions[currentQIndex] || questions[0];
   const currentVal = answers[currentQuestion?.id] || '';
 
+  const colors = ['#FCE1C3', '#D1E8FB', '#CFCCFF', '#BFE6D0'];
+  const bgColor = colors[currentQIndex % colors.length];
+
   const handleNext = (e: React.FormEvent) => {
     e.preventDefault();
     if (currentQuestion?.required && !currentVal.trim()) {
@@ -52,12 +55,23 @@ export const QuestionsPage: React.FC = () => {
       <ProgressBar currentStep={2} />
 
       <div className="container" style={{ padding: '40px 24px 80px' }}>
-        <form className="modern-card" style={{ maxWidth: '680px', margin: '0 auto' }} onSubmit={handleNext}>
+        <form className="modern-card" style={{ maxWidth: '680px', margin: '0 auto', backgroundColor: bgColor, border: 'none' }} onSubmit={handleNext}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
-            <span style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '1.5px', color: 'var(--accent-color)', textTransform: 'uppercase' }}>
+            <span style={{ 
+              display: 'inline-flex',
+              alignItems: 'center',
+              backgroundColor: '#232528',
+              padding: '6px 14px',
+              borderRadius: '20px',
+              fontSize: '12px',
+              fontWeight: 600,
+              color: '#FFFFFF',
+              letterSpacing: '1px',
+              textTransform: 'uppercase'
+             }}>
               02 • QUESTION {currentQIndex + 1} OF {questions.length}
             </span>
-            <span style={{ fontSize: '14px', fontWeight: 500, color: 'var(--text-muted)' }}>
+            <span style={{ fontSize: '14px', fontWeight: 700, color: '#232528' }}>
               Step 2 of 3
             </span>
           </div>

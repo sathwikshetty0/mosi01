@@ -21,6 +21,7 @@ interface CampaignContextType {
   submissions: PledgeSubmission[];
   addSubmission: (videoBlob?: Blob) => Promise<string>;
   getSubmissionVideoUrl: (id: string) => Promise<string | null>;
+  deleteSubmission: (id: string) => Promise<void>;
 
   // Admin Auth
   isAdminLoggedIn: boolean;
@@ -216,6 +217,18 @@ export const CampaignProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     return null;
   };
 
+  const deleteSubmission = async (id: string): Promise<void> => {
+    if (isSupabaseConfigured && supabase) {
+      try {
+        await supabase.from('pledge_submissions').delete().eq('id', id);
+        await supabase.storage.from('pledge-videos').remove([`${id}.webm`]);
+      } catch (err) {
+        console.error('Error deleting submission:', err);
+      }
+    }
+    setSubmissions((prev) => prev.filter((s) => s.id !== id));
+  };
+
   const adminLogin = (email: string, pass: string): boolean => {
     if (email === 'admin@wed.org' && pass === 'admin123') {
       setIsAdminLoggedIn(true);
@@ -249,6 +262,7 @@ export const CampaignProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         submissions,
         addSubmission,
         getSubmissionVideoUrl,
+        deleteSubmission,
         isAdminLoggedIn,
         adminLogin,
         adminLogout,

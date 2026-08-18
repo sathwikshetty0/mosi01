@@ -3,35 +3,35 @@
 :root {
   /* Backgrounds */
   --bg-white: #ffffff;
-  --bg-offwhite: #f6f6f6;
-  --bg-dark: #1a1a1a;
-  --bg-subtle: #ebebee;
+  --bg-offwhite: #F9FCE8;
+  --bg-dark: #232528;
+  --bg-subtle: #F0F0F0;
 
   /* Text Colors — Design System */
-  --text-primary: #1c2a3b;
-  --text-secondary: #52525b;
-  --text-muted: #a1a1aa;
+  --text-primary: #232528;
+  --text-secondary: #4A4A4A;
+  --text-muted: #888888;
   --text-white: #ffffff;
 
   /* Color Design System Tokens */
-  --accent-purple: #9389fa;
-  --accent-purple-light: #a197fb;
-  --accent-purple-dark: #6056c7;
-  --accent-purple-deep: #302b64;
-  --accent-purple-night: #181532;
+  --accent-purple: #CFCCFF;
+  --accent-purple-light: #EBEAFF;
+  --accent-purple-dark: #A5A2E0;
+  --accent-purple-deep: #706DAC;
+  --accent-purple-night: #3F3C72;
   --accent-crimson: #dc143c;
-  --accent-brand: #786bf9;
+  --accent-brand: #232528;
 
-  /* Primary Accent — Royal Indigo Purple */
-  --accent-color: #6056c7;
-  --accent-hover: #4c44ad;
-  --accent-light: #f0effe;
+  /* Primary Accent — Sleek Dark */
+  --accent-color: #232528;
+  --accent-hover: #35383d;
+  --accent-light: #F0F0F0;
 
   /* Border & Radius */
   --border-color: #e4e4e7;
-  --border-radius-card: 28px;
-  --border-radius-inner: 20px;
-  --border-radius-btn: 12px;
+  --border-radius-card: 32px;
+  --border-radius-inner: 24px;
+  --border-radius-btn: 32px;
 
   /* Shadows */
   --shadow-subtle: 0 2px 12px rgba(0, 0, 0, 0.03);
@@ -96,7 +96,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   position: sticky;
   top: 0;
   z-index: 100;
-  background: #000000;
+  background: var(--bg-dark);
   height: 72px;
 }
 
@@ -186,13 +186,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 .btn-dark {
-  background: #000000;
+  background: var(--bg-dark);
   color: #ffffff;
 }
 
 .btn-white {
   background: #ffffff;
-  color: #000000;
+  color: var(--text-primary);
   font-weight: 700;
 }
 
@@ -330,7 +330,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
    FOOTER
    =================================================== */
 .site-footer {
-  background: #000000;
+  background: var(--bg-dark);
   padding: 40px 0;
   margin-top: auto;
 }
@@ -413,5 +413,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     flex-direction: column;
     gap: 20px;
     text-align: center;
+  }
+
+  .hero-grid {
+    padding: 32px 20px !important;
+    gap: 24px !important;
   }
 }

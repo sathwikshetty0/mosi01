@@ -8,7 +8,7 @@ export const LandingPage: React.FC = () => {
   const { submissions, isSupabaseActive } = useCampaign();
 
   return (
-    <div className="page-wrapper" style={{ backgroundColor: '#ffffff' }}>
+    <div className="page-wrapper" style={{ backgroundColor: '#F9FCE8', color: '#232528', fontFamily: 'var(--sans)' }}>
       {/* Hero Section */}
       <section style={{ padding: '36px 0 60px' }}>
         <div className="container">
@@ -19,13 +19,13 @@ export const LandingPage: React.FC = () => {
               gridTemplateColumns: '1.1fr 0.9fr',
               gap: '40px',
               alignItems: 'center',
-              background: 'linear-gradient(135deg, #f9f9fb 0%, #f0effe 100%)',
-              borderRadius: 'var(--border-radius-card)',
+              background: '#FFFFFF',
+              borderRadius: '24px',
               padding: '56px 48px',
-              border: '1px solid #e4e4e7',
+              border: 'none',
               position: 'relative',
               overflow: 'hidden',
-              boxShadow: 'var(--shadow-card)',
+              boxShadow: '0 10px 40px rgba(0,0,0,0.03)',
             }}
           >
             {/* Ambient Background Glow */}
@@ -37,7 +37,7 @@ export const LandingPage: React.FC = () => {
                 width: '320px',
                 height: '320px',
                 borderRadius: '50%',
-                background: 'radial-gradient(circle, rgba(147, 137, 250, 0.25) 0%, rgba(255,255,255,0) 70%)',
+                background: 'transparent',
                 pointerEvents: 'none',
               }}
             />
@@ -50,20 +50,16 @@ export const LandingPage: React.FC = () => {
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '8px',
-                    fontSize: '12px',
-                    fontWeight: 800,
-                    letterSpacing: '1.5px',
-                    textTransform: 'uppercase',
-                    color: 'var(--accent-color)',
-                    backgroundColor: '#ffffff',
-                    boxShadow: '0 2px 10px rgba(96, 86, 199, 0.1)',
-                    padding: '8px 16px',
-                    borderRadius: '20px',
-                    border: '1px solid rgba(96, 86, 199, 0.2)',
+                    fontSize: '13px',
+                    fontWeight: 600,
+                    color: '#FFFFFF',
+                    backgroundColor: '#232528',
+                    padding: '8px 20px',
+                    borderRadius: '24px',
                   }}
                 >
-                  <Sparkles size={14} />
-                  WORLD ENTREPRENEURSHIP DAY 2026
+                  <Sparkles size={16} />
+                  World Entrepreneurship Day
                 </div>
 
                 {isSupabaseActive && (
@@ -71,50 +67,44 @@ export const LandingPage: React.FC = () => {
                     style={{
                       display: 'inline-flex',
                       alignItems: 'center',
-                      gap: '6px',
-                      fontSize: '11px',
-                      fontWeight: 700,
-                      color: '#065f46',
-                      backgroundColor: '#ecfdf5',
-                      border: '1px solid #a7f3d0',
-                      padding: '6px 12px',
-                      borderRadius: '20px',
+                      gap: '8px',
+                      fontSize: '13px',
+                      fontWeight: 600,
+                      color: '#232528',
+                      backgroundColor: '#FFFFFF',
+                      boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
+                      padding: '8px 20px',
+                      borderRadius: '24px',
                     }}
                   >
-                    <Database size={12} />
-                    SUPABASE CONNECTED
+                    <Database size={16} />
+                    Supabase Connected
                   </div>
                 )}
               </div>
 
               <h1
                 style={{
-                  fontSize: 'clamp(32px, 4vw, 50px)',
-                  fontWeight: 800,
+                  fontSize: 'clamp(32px, 8vw, 64px)',
+                  fontWeight: 500,
                   lineHeight: 1.1,
                   letterSpacing: '-1px',
-                  textTransform: 'uppercase',
-                  marginBottom: '20px',
-                  color: 'var(--text-primary)',
+                  marginBottom: '24px',
+                  color: '#232528',
+                  wordWrap: 'break-word',
+                  overflowWrap: 'anywhere',
+                  hyphens: 'auto',
                 }}
               >
                 Happy World <br />
-                <span
-                  style={{
-                    background: 'linear-gradient(135deg, #6056c7 0%, #786bf9 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                  }}
-                >
-                  Entrepreneurship
-                </span> Day
+                Entrepreneurship Day
               </h1>
 
               <p
                 style={{
                   fontSize: '17px',
-                  fontWeight: 500,
-                  color: 'var(--text-secondary)',
+                  fontWeight: 400,
+                  color: '#4A4A4A',
                   marginBottom: '32px',
                   maxWidth: '480px',
                   lineHeight: 1.6,
@@ -126,14 +116,22 @@ export const LandingPage: React.FC = () => {
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '16px' }}>
                 <Link
                   to="/signup"
-                  className="btn btn-primary"
                   style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '8px',
+                    backgroundColor: '#232528',
+                    color: '#FFFFFF',
+                    textDecoration: 'none',
+                    borderRadius: '32px',
                     padding: '0 36px',
                     height: '56px',
                     fontSize: '17px',
-                    boxShadow: '0 10px 28px rgba(96, 86, 199, 0.35)',
+                    fontWeight: 500,
                     width: '100%',
                     maxWidth: '320px',
+                    boxShadow: '0 4px 14px rgba(0,0,0,0.1)',
                   }}
                 >
                   Click Here to Pledge
@@ -146,16 +144,18 @@ export const LandingPage: React.FC = () => {
                     alignItems: 'center',
                     gap: '10px',
                     fontSize: '14px',
-                    fontWeight: 600,
-                    color: 'var(--text-secondary)',
-                    backgroundColor: 'rgba(255,255,255,0.8)',
-                    padding: '6px 14px',
-                    borderRadius: '12px',
-                    border: '1px solid rgba(0,0,0,0.05)',
+                    fontWeight: 500,
+                    color: '#4A4A4A',
+                    backgroundColor: '#FFFFFF',
+                    padding: '8px 16px',
+                    borderRadius: '24px',
+                    boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
+                    maxWidth: '100%',
+                    wordWrap: 'break-word',
                   }}
                 >
-                  <CheckCircle size={18} color="var(--accent-color)" />
-                  <span>Over {135 + submissions.length} pledges recorded this year</span>
+                  <CheckCircle size={18} color="#232528" style={{ flexShrink: 0 }} />
+                  <span style={{ overflowWrap: 'anywhere' }}>Over {135 + submissions.length} pledges recorded this year</span>
                 </div>
               </div>
             </div>
@@ -166,59 +166,62 @@ export const LandingPage: React.FC = () => {
                 style={{
                   width: '100%',
                   minHeight: '380px',
-                  backgroundColor: '#000000',
-                  borderRadius: 'var(--border-radius-inner)',
-                  boxShadow: '0 20px 50px rgba(0, 0, 0, 0.25)',
+                  backgroundColor: '#BFE6D0',
+                  borderRadius: '32px',
+                  boxShadow: '0 10px 30px rgba(0, 0, 0, 0.05)',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
                   padding: '32px',
-                  color: '#ffffff',
+                  color: '#232528',
                   position: 'relative',
                   overflow: 'hidden',
-                  border: '1px solid rgba(255, 255, 255, 0.15)',
+                  border: 'none',
                 }}
               >
                 {/* Header inside card */}
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <img src="/logos/janai-logo.png" alt="Janai" style={{ height: '32px', width: 'auto' }} />
-                    <span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.3)' }}>|</span>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '12px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+                    <img src="/logos/janai-logo.png" alt="Janai" style={{ height: '32px', width: 'auto', filter: 'brightness(0)' }} />
+                    <span style={{ fontSize: '12px', color: 'rgba(0,0,0,0.2)' }}>|</span>
                     <img
                       src="/logos/inunity-logo.png"
                       alt="inUnity"
-                      style={{ height: '14px', width: 'auto', filter: 'brightness(0) invert(1)' }}
+                      style={{ height: '14px', width: 'auto', filter: 'brightness(0)' }}
                     />
                   </div>
                   <div
                     style={{
-                      padding: '4px 10px',
-                      borderRadius: '20px',
-                      backgroundColor: 'rgba(147, 137, 250, 0.2)',
-                      border: '1px solid rgba(147, 137, 250, 0.4)',
-                      fontSize: '11px',
-                      fontWeight: 700,
-                      color: 'var(--accent-purple-light)',
+                      padding: '6px 14px',
+                      borderRadius: '24px',
+                      backgroundColor: '#FFFFFF',
+                      fontSize: '12px',
+                      fontWeight: 600,
+                      color: '#232528',
                     }}
                   >
-                    CAMPAIGN LIVE
+                    Campaign Live
                   </div>
                 </div>
 
                 <div style={{ margin: '20px 0' }}>
                   <div
                     style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      backgroundColor: '#FFFFFF',
+                      padding: '6px 14px',
+                      borderRadius: '20px',
                       fontSize: '12px',
-                      fontWeight: 800,
-                      letterSpacing: '1.5px',
-                      textTransform: 'uppercase',
-                      color: 'var(--accent-purple-light)',
-                      marginBottom: '10px',
+                      fontWeight: 600,
+                      color: '#232528',
+                      marginBottom: '16px',
                     }}
                   >
-                    01 • TAKE THE PLEDGE
+                    <Target size={14} style={{ marginRight: '6px' }} />
+                    01 • Take the Pledge
                   </div>
-                  <h3 style={{ fontSize: '26px', fontWeight: 800, lineHeight: 1.25, color: '#ffffff' }}>
+                  <h3 style={{ fontSize: '28px', fontWeight: 500, lineHeight: 1.25, color: '#232528' }}>
                     Share Your Big Idea & Record Statement
                   </h3>
                 </div>
@@ -229,15 +232,17 @@ export const LandingPage: React.FC = () => {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
+                    flexWrap: 'wrap',
+                    gap: '12px',
                     paddingTop: '16px',
-                    borderTop: '1px solid rgba(255,255,255,0.12)',
+                    borderTop: '1px solid rgba(0,0,0,0.08)',
                   }}
                 >
                   <div style={{ display: 'flex', flexDirection: 'column' }}>
-                    <span style={{ fontSize: '14px', fontWeight: 700, color: '#ffffff' }}>
+                    <span style={{ fontSize: '14px', fontWeight: 600, color: '#232528' }}>
                       World Entrepreneurship Day
                     </span>
-                    <span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.6)' }}>
+                    <span style={{ fontSize: '12px', color: 'rgba(0,0,0,0.5)' }}>
                       inUnity × Janai Pledge Movement
                     </span>
                   </div>
@@ -245,14 +250,14 @@ export const LandingPage: React.FC = () => {
                     style={{
                       width: '42px',
                       height: '42px',
-                      borderRadius: '10px',
-                      backgroundColor: 'var(--accent-color)',
+                      borderRadius: '50%',
+                      backgroundColor: '#232528',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      fontWeight: 800,
+                      fontWeight: 600,
                       fontSize: '14px',
-                      color: '#ffffff',
+                      color: '#FFFFFF',
                     }}
                   >
                     WED
@@ -277,93 +282,93 @@ export const LandingPage: React.FC = () => {
           >
             <div
               style={{
-                background: 'var(--bg-offwhite)',
-                padding: '28px',
-                borderRadius: 'var(--border-radius-inner)',
-                border: '1px solid var(--border-color)',
+                background: '#FCE1C3',
+                padding: '32px',
+                borderRadius: '24px',
+                border: 'none',
               }}
             >
               <div
                 style={{
                   width: '48px',
                   height: '48px',
-                  borderRadius: '12px',
-                  backgroundColor: 'var(--accent-light)',
-                  color: 'var(--accent-color)',
+                  borderRadius: '50%',
+                  backgroundColor: '#FFFFFF',
+                  color: '#232528',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  marginBottom: '16px',
+                  marginBottom: '20px',
                 }}
               >
                 <Target size={24} />
               </div>
-              <h3 style={{ fontSize: '18px', fontWeight: 800, marginBottom: '8px', textTransform: 'uppercase' }}>
-                1. Declare Your Idea
+              <h3 style={{ fontSize: '20px', fontWeight: 500, marginBottom: '12px', color: '#232528' }}>
+                Declare Your Idea
               </h3>
-              <p style={{ fontSize: '14px', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
+              <p style={{ fontSize: '15px', color: 'rgba(0,0,0,0.6)', lineHeight: 1.5 }}>
                 Answer 4 structured questions detailing your vision, target audience, and immediate execution steps.
               </p>
             </div>
 
             <div
               style={{
-                background: 'var(--bg-offwhite)',
-                padding: '28px',
-                borderRadius: 'var(--border-radius-inner)',
-                border: '1px solid var(--border-color)',
+                background: '#D1E8FB',
+                padding: '32px',
+                borderRadius: '24px',
+                border: 'none',
               }}
             >
               <div
                 style={{
                   width: '48px',
                   height: '48px',
-                  borderRadius: '12px',
-                  backgroundColor: 'rgba(147, 137, 250, 0.15)',
-                  color: 'var(--accent-purple-dark)',
+                  borderRadius: '50%',
+                  backgroundColor: '#FFFFFF',
+                  color: '#232528',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  marginBottom: '16px',
+                  marginBottom: '20px',
                 }}
               >
                 <Video size={24} />
               </div>
-              <h3 style={{ fontSize: '18px', fontWeight: 800, marginBottom: '8px', textTransform: 'uppercase' }}>
-                2. Record Video Pledge
+              <h3 style={{ fontSize: '20px', fontWeight: 500, marginBottom: '12px', color: '#232528' }}>
+                Record Video Pledge
               </h3>
-              <p style={{ fontSize: '14px', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
+              <p style={{ fontSize: '15px', color: 'rgba(0,0,0,0.6)', lineHeight: 1.5 }}>
                 Record a short video statement directly in your browser using your device's camera.
               </p>
             </div>
 
             <div
               style={{
-                background: 'var(--bg-offwhite)',
-                padding: '28px',
-                borderRadius: 'var(--border-radius-inner)',
-                border: '1px solid var(--border-color)',
+                background: '#CFCCFF',
+                padding: '32px',
+                borderRadius: '24px',
+                border: 'none',
               }}
             >
               <div
                 style={{
                   width: '48px',
                   height: '48px',
-                  borderRadius: '12px',
-                  backgroundColor: 'rgba(220, 20, 60, 0.1)',
-                  color: 'var(--accent-crimson)',
+                  borderRadius: '50%',
+                  backgroundColor: '#FFFFFF',
+                  color: '#232528',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  marginBottom: '16px',
+                  marginBottom: '20px',
                 }}
               >
                 <Users size={24} />
               </div>
-              <h3 style={{ fontSize: '18px', fontWeight: 800, marginBottom: '8px', textTransform: 'uppercase' }}>
-                3. Join Public Wall
+              <h3 style={{ fontSize: '20px', fontWeight: 500, marginBottom: '12px', color: '#232528' }}>
+                Join Public Wall
               </h3>
-              <p style={{ fontSize: '14px', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
+              <p style={{ fontSize: '15px', color: 'rgba(0,0,0,0.6)', lineHeight: 1.5 }}>
                 Your pledge is logged on the public entrepreneur wall, inspiring fellow founders across the country.
               </p>
             </div>
@@ -372,29 +377,31 @@ export const LandingPage: React.FC = () => {
       </section>
 
       {/* Keynote Video Message Section */}
-      <section style={{ padding: '48px 0 80px', backgroundColor: '#fafafa', borderTop: '1px solid var(--border-color)' }}>
+      <section style={{ padding: '48px 0 80px', backgroundColor: '#F9FCE8', borderTop: 'none' }}>
         <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '40px' }}>
             <div
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                fontSize: '12px',
-                fontWeight: 800,
-                letterSpacing: '1.5px',
-                textTransform: 'uppercase',
-                color: 'var(--accent-color)',
-                marginBottom: '10px',
+                fontSize: '13px',
+                fontWeight: 600,
+                color: '#232528',
+                backgroundColor: '#FFFFFF',
+                padding: '8px 20px',
+                borderRadius: '24px',
+                marginBottom: '16px',
+                boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
               }}
             >
               <Award size={16} />
-              SPECIAL ADDRESS
+              Special Address
             </div>
-            <h2 style={{ fontSize: '32px', fontWeight: 800, textTransform: 'uppercase', marginBottom: '8px' }}>
+            <h2 style={{ fontSize: '36px', fontWeight: 500, marginBottom: '12px', color: '#232528' }}>
               A Message For Future Founders
             </h2>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '16px', fontWeight: 500, maxWidth: '540px', margin: '0 auto' }}>
+            <p style={{ color: '#4A4A4A', fontSize: '17px', fontWeight: 400, maxWidth: '540px', margin: '0 auto' }}>
               Listen to leadership share why taking the first step matters today.
             </p>
           </div>
@@ -403,14 +410,15 @@ export const LandingPage: React.FC = () => {
             style={{
               maxWidth: '840px',
               margin: '0 auto',
-              background: '#000000',
-              borderRadius: 'var(--border-radius-card)',
+              background: '#FFFFFF',
+              borderRadius: '32px',
               overflow: 'hidden',
-              boxShadow: 'var(--shadow-elevated)',
-              border: '1px solid rgba(255,255,255,0.1)',
+              boxShadow: '0 10px 40px rgba(0,0,0,0.05)',
+              border: 'none',
+              padding: '12px',
             }}
           >
-            <div style={{ position: 'relative', paddingTop: '56.25%', width: '100%' }}>
+            <div style={{ position: 'relative', paddingTop: '56.25%', width: '100%', borderRadius: '24px', overflow: 'hidden' }}>
               {!isPlaying ? (
                 <div
                   onClick={() => setIsPlaying(true)}
@@ -426,7 +434,7 @@ export const LandingPage: React.FC = () => {
                     justifyContent: 'center',
                     cursor: 'pointer',
                     color: '#ffffff',
-                    backgroundImage: 'linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.85) 100%), url(https://img.youtube.com/vi/VS1o71thIw4/maxresdefault.jpg)',
+                    backgroundImage: 'linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%), url(https://img.youtube.com/vi/VS1o71thIw4/maxresdefault.jpg)',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     padding: '20px',
@@ -438,20 +446,20 @@ export const LandingPage: React.FC = () => {
                       width: '76px',
                       height: '76px',
                       borderRadius: '50%',
-                      backgroundColor: 'var(--accent-color)',
-                      color: '#ffffff',
+                      backgroundColor: '#FFFFFF',
+                      color: '#232528',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       marginBottom: '16px',
-                      boxShadow: '0 8px 28px rgba(96, 86, 199, 0.5)',
+                      boxShadow: '0 8px 28px rgba(0,0,0,0.15)',
                       transition: 'transform 0.2s ease',
                     }}
                   >
                     <Play size={34} style={{ marginLeft: '4px' }} />
                   </div>
-                  <h3 style={{ fontSize: '22px', fontWeight: 800 }}>Play Official Campaign Keynote</h3>
-                  <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.8)', marginTop: '4px' }}>
+                  <h3 style={{ fontSize: '24px', fontWeight: 500 }}>Play Official Campaign Keynote</h3>
+                  <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.9)', marginTop: '8px' }}>
                     Click to watch keynote video greeting
                   </p>
                 </div>

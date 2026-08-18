@@ -27,6 +27,7 @@ export const AdminPage: React.FC = () => {
     questions,
     updateQuestions,
     getSubmissionVideoUrl,
+    deleteSubmission,
   } = useCampaign();
 
   // Login form state
@@ -102,15 +103,15 @@ export const AdminPage: React.FC = () => {
     return (
       <div className="page-wrapper" style={{ backgroundColor: 'var(--bg-offwhite)', justifyContent: 'center' }}>
         <div className="container">
-          <form className="form-card" onSubmit={handleLogin} style={{ maxWidth: '420px', margin: '60px auto' }}>
+          <form onSubmit={handleLogin} style={{ maxWidth: '420px', margin: '60px auto', backgroundColor: '#FCE1C3', border: 'none', borderRadius: '32px', padding: '44px', boxShadow: '0 8px 32px rgba(0,0,0,0.04)' }}>
             <div style={{ textAlign: 'center', marginBottom: '24px' }}>
               <div
                 style={{
                   width: '56px',
                   height: '56px',
                   borderRadius: '50%',
-                  backgroundColor: 'var(--accent-light)',
-                  color: 'var(--accent-color)',
+                  backgroundColor: '#232528',
+                  color: '#FFFFFF',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -119,8 +120,8 @@ export const AdminPage: React.FC = () => {
               >
                 <Lock size={28} />
               </div>
-              <h2 style={{ fontSize: '22px', fontWeight: 700 }}>Admin Portal</h2>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '14px', marginTop: '4px' }}>
+              <h2 style={{ fontSize: '22px', fontWeight: 800, color: '#232528' }}>Admin Portal</h2>
+              <p style={{ color: '#232528', fontSize: '14px', marginTop: '4px', fontWeight: 500 }}>
                 Sign in to manage pledge campaign data
               </p>
             </div>
@@ -180,8 +181,8 @@ export const AdminPage: React.FC = () => {
       <aside
         style={{
           width: '260px',
-          borderRight: '1px solid var(--border-color)',
-          backgroundColor: 'var(--bg-white)',
+          borderRight: 'none',
+          backgroundColor: '#FCE1C3',
           padding: '24px 16px',
           display: 'flex',
           flexDirection: 'column',
@@ -189,7 +190,7 @@ export const AdminPage: React.FC = () => {
         }}
       >
         <div>
-          <div style={{ fontSize: '12px', fontWeight: 700, color: 'var(--text-muted)', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '16px', paddingLeft: '12px' }}>
+          <div style={{ fontSize: '12px', fontWeight: 800, color: '#232528', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '16px', paddingLeft: '12px' }}>
             Campaign Management
           </div>
 
@@ -269,10 +270,11 @@ export const AdminPage: React.FC = () => {
             </div>
 
             {/* Submissions Table */}
-            <div style={{ background: '#fff', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', overflow: 'hidden', boxShadow: 'var(--shadow-sm)' }}>
+            <div style={{ background: '#CFCCFF', borderRadius: '32px', border: 'none', overflow: 'hidden', boxShadow: 'var(--shadow-card)', padding: '12px' }}>
+              <div style={{ borderRadius: '24px', overflow: 'hidden', background: '#FFFFFF' }}>
               <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '14px' }}>
                 <thead>
-                  <tr style={{ background: 'var(--bg-offwhite)', borderBottom: '1px solid var(--border-color)', color: 'var(--text-muted)', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                  <tr style={{ background: 'rgba(0,0,0,0.02)', borderBottom: '1px solid rgba(0,0,0,0.05)', color: '#232528', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.5px', fontWeight: 800 }}>
                     <th style={{ padding: '14px 20px' }}>User / Contact</th>
                     <th style={{ padding: '14px 20px' }}>Phone</th>
                     <th style={{ padding: '14px 20px' }}>Date Submitted</th>
@@ -295,11 +297,11 @@ export const AdminPage: React.FC = () => {
                               <div style={{ fontSize: '13px', color: 'var(--text-muted)' }}>{sub.user.email}</div>
                             </td>
                             <td style={{ padding: '16px 20px', color: 'var(--text-secondary)' }}>{sub.user.phone}</td>
-                            <td style={{ padding: '16px 20px', color: 'var(--text-secondary)' }}>
+                            <td style={{ padding: '16px 20px', color: '#232528' }}>
                               {new Date(sub.createdAt).toLocaleDateString()} {new Date(sub.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                             </td>
                             <td style={{ padding: '16px 20px' }}>
-                              <span style={{ padding: '4px 10px', borderRadius: 'var(--radius-pill)', backgroundColor: 'var(--accent-light)', color: 'var(--accent-color)', fontWeight: 600, fontSize: '12px' }}>
+                              <span style={{ padding: '4px 10px', borderRadius: '20px', backgroundColor: '#232528', color: '#FFFFFF', fontWeight: 600, fontSize: '12px' }}>
                                 {sub.status}
                               </span>
                             </td>
@@ -351,13 +353,14 @@ export const AdminPage: React.FC = () => {
                     })
                   ) : (
                     <tr>
-                      <td colSpan={5} style={{ padding: '40px', textAlign: 'center', color: 'var(--text-muted)' }}>
+                      <td colSpan={5} style={{ padding: '40px', textAlign: 'center', color: '#232528', fontWeight: 600 }}>
                         No pledge submissions found matching search query.
                       </td>
                     </tr>
                   )}
                 </tbody>
               </table>
+              </div>
             </div>
           </div>
         )}
@@ -381,13 +384,16 @@ export const AdminPage: React.FC = () => {
 
             <form onSubmit={handleSaveQuestions}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '24px' }}>
-                {editableQuestions.map((q, idx) => (
-                  <div key={q.id} className="form-card" style={{ margin: 0, maxWidth: 'none', padding: '24px' }}>
+                {editableQuestions.map((q, idx) => {
+                  const colors = ['#FCE1C3', '#D1E8FB', '#CFCCFF', '#BFE6D0'];
+                  const bgColor = colors[idx % colors.length];
+                  return (
+                  <div key={q.id} style={{ margin: 0, padding: '24px', backgroundColor: bgColor, borderRadius: '32px' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-                      <span style={{ fontWeight: 700, fontSize: '14px', color: 'var(--accent-color)' }}>
+                      <span style={{ fontWeight: 800, fontSize: '14px', color: '#232528' }}>
                         Question #{idx + 1}
                       </span>
-                      <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>ID: {q.id}</span>
+                      <span style={{ fontSize: '12px', color: '#232528', opacity: 0.6 }}>ID: {q.id}</span>
                     </div>
 
                     <div className="form-group" style={{ marginBottom: '16px' }}>
@@ -418,7 +424,7 @@ export const AdminPage: React.FC = () => {
                       />
                     </div>
                   </div>
-                ))}
+                )})}
               </div>
 
               <button type="submit" className="btn btn-primary" style={{ padding: '0 32px' }}>
