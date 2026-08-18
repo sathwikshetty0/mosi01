@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ProgressBar } from '../components/ProgressBar';
 import { useCampaign } from '../context/CampaignContext';
-import { Camera, Square, Play, RefreshCw, Send, AlertCircle } from 'lucide-react';
+import { Camera, Square, RefreshCw, Send, AlertCircle } from 'lucide-react';
 
 export const VideoRecordPage: React.FC = () => {
   const navigate = useNavigate();

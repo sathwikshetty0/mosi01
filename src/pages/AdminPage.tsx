@@ -28,7 +28,6 @@ export const AdminPage: React.FC = () => {
     questions,
     updateQuestions,
     getSubmissionVideoUrl,
-    deleteSubmission,
   } = useCampaign();
 
   // Login form state
@@ -351,7 +350,7 @@ export const AdminPage: React.FC = () => {
                                             {q.text}
                                           </div>
                                           <div style={{ fontSize: '14px', color: 'var(--text-primary)' }}>
-                                            {sub.answers[q.id] || <span style={{ color: 'var(--text-muted)', italic: 'true' }}>No answer provided</span>}
+                                            {sub.answers[q.id] || <span style={{ color: 'var(--text-muted)', fontStyle: 'italic' }}>No answer provided</span>}
                                           </div>
                                         </div>
                                       ))}
