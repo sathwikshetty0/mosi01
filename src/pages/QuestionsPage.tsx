@@ -13,6 +13,9 @@ export const QuestionsPage: React.FC = () => {
   const currentQuestion = questions[currentQIndex] || questions[0];
   const currentVal = answers[currentQuestion?.id] || '';
 
+  const colors = ['#6A5BFF', '#2D68FF', '#EF4444', '#10C871'];
+  const bgColor = colors[currentQIndex % colors.length];
+
   const handleNext = (e: React.FormEvent) => {
     e.preventDefault();
     if (currentQuestion?.required && !currentVal.trim()) {
@@ -52,18 +55,29 @@ export const QuestionsPage: React.FC = () => {
       <ProgressBar currentStep={2} />
 
       <div className="container" style={{ padding: '40px 24px 80px' }}>
-        <form className="modern-card" style={{ maxWidth: '680px', margin: '0 auto' }} onSubmit={handleNext}>
+        <form className="modern-card" style={{ maxWidth: '680px', margin: '0 auto', backgroundColor: bgColor, border: 'none' }} onSubmit={handleNext}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
-            <span style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '1.5px', color: 'var(--accent-color)', textTransform: 'uppercase' }}>
+            <span style={{ 
+              display: 'inline-flex',
+              alignItems: 'center',
+              backgroundColor: '#1C2434',
+              padding: '6px 14px',
+              borderRadius: '20px',
+              fontSize: '12px',
+              fontWeight: 600,
+              color: '#FFFFFF',
+              letterSpacing: '1px',
+              textTransform: 'uppercase'
+             }}>
               02 • QUESTION {currentQIndex + 1} OF {questions.length}
             </span>
-            <span style={{ fontSize: '14px', fontWeight: 500, color: 'var(--text-muted)' }}>
+            <span style={{ fontSize: '14px', fontWeight: 700, color: '#FFFFFF' }}>
               Step 2 of 3
             </span>
           </div>
 
           <div style={{ marginBottom: '32px' }}>
-            <h2 style={{ fontSize: '28px', fontWeight: 800, lineHeight: 1.25, color: 'var(--text-primary)', marginBottom: '16px' }}>
+            <h2 style={{ fontSize: '28px', fontWeight: 800, lineHeight: 1.25, color: '#FFFFFF', marginBottom: '16px' }}>
               {currentQuestion.text}
             </h2>
             <textarea

@@ -143,12 +143,27 @@ export const VideoRecordPage: React.FC = () => {
       <ProgressBar currentStep={3} />
 
       <div className="container" style={{ padding: '20px 24px 60px' }}>
-        <div className="form-card" style={{ maxWidth: '720px' }}>
+        <div className="modern-card" style={{ maxWidth: '720px', margin: '0 auto', backgroundColor: '#FFFFFF', border: 'none' }}>
           <div style={{ textAlign: 'center', marginBottom: '24px' }}>
-            <h2 style={{ fontSize: '24px', fontWeight: 700, marginBottom: '6px' }}>
+            <span style={{ 
+              display: 'inline-flex',
+              alignItems: 'center',
+              backgroundColor: '#1C2434',
+              padding: '6px 14px',
+              borderRadius: '20px',
+              fontSize: '12px',
+              fontWeight: 600,
+              color: '#FFFFFF',
+              letterSpacing: '1px',
+              textTransform: 'uppercase',
+              marginBottom: '16px'
+             }}>
+              03 • RECORD VIDEO
+            </span>
+            <h2 style={{ fontSize: '24px', fontWeight: 800, marginBottom: '6px', color: '#1C2434' }}>
               Record Your Video Pledge
             </h2>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '15px' }}>
+            <p style={{ color: '#1C2434', fontSize: '15px', fontWeight: 500 }}>
               Share your big idea with the world in a short video (30–60 seconds recommended).
             </p>
           </div>

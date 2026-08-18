@@ -3,35 +3,34 @@
 :root {
   /* Backgrounds */
   --bg-white: #ffffff;
-  --bg-offwhite: #f6f6f6;
-  --bg-dark: #1a1a1a;
-  --bg-subtle: #ebebee;
+  --bg-offwhite: #F4F7FE;
+  --bg-dark: #1C2434;
+  --bg-subtle: #F0F0F0;
 
   /* Text Colors — Design System */
-  --text-primary: #1c2a3b;
-  --text-secondary: #52525b;
-  --text-muted: #a1a1aa;
+  --text-primary: #1C2434;
+  --text-secondary: #4A5568;
+  --text-muted: #94A3B8;
   --text-white: #ffffff;
 
   /* Color Design System Tokens */
-  --accent-purple: #9389fa;
-  --accent-purple-light: #a197fb;
-  --accent-purple-dark: #6056c7;
-  --accent-purple-deep: #302b64;
-  --accent-purple-night: #181532;
-  --accent-crimson: #dc143c;
-  --accent-brand: #786bf9;
+  --accent-purple: #CFCCFF;
+  --accent-purple-light: #EBEAFF;
+  --accent-purple-dark: #A5A2E0;
+  --accent-purple-deep: #706DAC;
+  --accent-crimson: #EF4444;
+  --accent-brand: #6A5BFF;
 
-  /* Primary Accent — Royal Indigo Purple */
-  --accent-color: #6056c7;
-  --accent-hover: #4c44ad;
-  --accent-light: #f0effe;
+  /* Primary Accent — Bright Indigo */
+  --accent-color: #6A5BFF;
+  --accent-hover: #5A4BE6;
+  --accent-light: #F0F0F0;
 
   /* Border & Radius */
   --border-color: #e4e4e7;
-  --border-radius-card: 28px;
-  --border-radius-inner: 20px;
-  --border-radius-btn: 12px;
+  --border-radius-card: 32px;
+  --border-radius-inner: 24px;
+  --border-radius-btn: 32px;
 
   /* Shadows */
   --shadow-subtle: 0 2px 12px rgba(0, 0, 0, 0.03);
@@ -96,7 +95,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   position: sticky;
   top: 0;
   z-index: 100;
-  background: #000000;
+  background: var(--bg-dark);
   height: 72px;
 }
 
@@ -111,6 +110,28 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   display: flex;
   align-items: center;
   gap: 16px;
+}
+
+.logo-janai {
+  height: 44px;
+  max-width: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-divider {
+  width: 1px;
+  flex-shrink: 0;
+  height: 24px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.logo-inunity {
+  height: 22px;
+  max-width: 100%;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
 }
 
 .header-nav {
@@ -152,6 +173,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   border: none;
   text-decoration: none;
   touch-action: manipulation;
+  white-space: nowrap;
 }
 
 .btn-primary {
@@ -186,13 +208,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 .btn-dark {
-  background: #000000;
+  background: var(--bg-dark);
   color: #ffffff;
 }
 
 .btn-white {
   background: #ffffff;
-  color: #000000;
+  color: var(--text-primary);
   font-weight: 700;
 }
 
@@ -330,7 +352,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
    FOOTER
    =================================================== */
 .site-footer {
-  background: #000000;
+  background: var(--bg-dark);
   padding: 40px 0;
   margin-top: auto;
 }
@@ -405,13 +427,44 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     padding: 0 20px;
   }
 
+  .btn-sm {
+    height: 38px;
+    font-size: 13px;
+    padding: 0 14px;
+  }
+
+  .header-logo-group {
+    gap: 8px !important;
+  }
+
+  .logo-janai {
+    height: 26px;
+  }
+
+  .logo-divider {
+    height: 16px;
+  }
+
+  .logo-inunity {
+    height: 14px;
+  }
+
   .header-link {
     display: none;
+  }
+
+  .hide-mobile {
+    display: none !important;
   }
 
   .footer-inner {
     flex-direction: column;
     gap: 20px;
     text-align: center;
+  }
+
+  .hero-grid {
+    padding: 32px 20px !important;
+    gap: 24px !important;
   }
 }

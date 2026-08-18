@@ -47,15 +47,27 @@ export const SignupPage: React.FC = () => {
       <ProgressBar currentStep={1} />
 
       <div className="container" style={{ padding: '40px 24px 80px' }}>
-        <form className="modern-card" style={{ maxWidth: '560px', margin: '0 auto' }} onSubmit={handleSubmit}>
+        <form className="modern-card" style={{ maxWidth: '560px', margin: '0 auto', backgroundColor: '#FFFFFF', border: 'none' }} onSubmit={handleSubmit}>
           <div style={{ marginBottom: '32px' }}>
-            <span style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '1.5px', color: 'var(--accent-color)', textTransform: 'uppercase' }}>
+            <span style={{ 
+              display: 'inline-flex',
+              alignItems: 'center',
+              backgroundColor: '#1C2434',
+              padding: '6px 14px',
+              borderRadius: '20px',
+              fontSize: '12px',
+              fontWeight: 600,
+              color: '#FFFFFF',
+              letterSpacing: '1px',
+              textTransform: 'uppercase',
+              marginBottom: '12px'
+             }}>
               01 • SIGN UP
             </span>
             <h2 style={{ fontSize: '36px', fontWeight: 800, marginTop: '6px', lineHeight: '1.15', textTransform: 'uppercase' }}>
-              Let’s Start With <span style={{ color: 'var(--accent-color)' }}>You.</span>
+              Let’s Start With <span style={{ color: '#1C2434' }}>You.</span>
             </h2>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '16px', fontWeight: 500, marginTop: '8px' }}>
+            <p style={{ color: '#1C2434', fontSize: '16px', fontWeight: 500, marginTop: '8px' }}>
               Tell us who’s behind the big idea.
             </p>
           </div>

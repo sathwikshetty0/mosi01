@@ -10,12 +10,14 @@ export const ThankYouPage: React.FC = () => {
     <div className="page-wrapper" style={{ backgroundColor: 'var(--bg-offwhite)' }}>
       <div className="container" style={{ padding: '80px 24px' }}>
         <div
-          className="form-card"
+          className="modern-card"
           style={{
             maxWidth: '560px',
             textAlign: 'center',
             padding: '50px 36px',
             margin: '0 auto',
+            backgroundColor: '#FFFFFF',
+            border: 'none',
           }}
         >
           <div
@@ -34,22 +36,23 @@ export const ThankYouPage: React.FC = () => {
             <CheckCircle2 size={48} />
           </div>
 
-          <h1 style={{ fontSize: '28px', fontWeight: 800, marginBottom: '12px' }}>
+          <h1 style={{ fontSize: '28px', fontWeight: 800, marginBottom: '12px', color: '#1C2434' }}>
             Pledge Successfully Recorded!
           </h1>
 
-          <p style={{ color: 'var(--text-secondary)', fontSize: '16px', lineHeight: 1.6, marginBottom: '24px' }}>
+          <p style={{ color: '#1C2434', fontSize: '16px', lineHeight: 1.6, marginBottom: '24px', fontWeight: 500 }}>
             Thank you {userDetails.fullName || 'Innovator'} for being a part of World Entrepreneurship Day.
             Your pledge to pursue your big idea has been registered.
           </p>
 
           <div
             style={{
-              background: 'var(--bg-subtle)',
+              background: '#FFFFFF',
               padding: '16px 20px',
               borderRadius: '12px',
               fontSize: '14px',
-              color: 'var(--text-muted)',
+              fontWeight: 600,
+              color: '#1C2434',
               marginBottom: '32px',
             }}
           >
